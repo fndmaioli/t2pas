@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="t2leilao" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MultipeerConectivityTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,18 +66,27 @@
                                 <rect key="frame" x="143" y="637" width="128" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Fechar leilao"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDt-CE-hVx">
+                                <rect key="frame" x="112" y="102" width="33" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Host"/>
                                 <connections>
-                                    <action selector="fecharLeilaoButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B1k-tt-Nw2"/>
+                                    <action selector="hostButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ovG-wD-YtD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppr-WJ-3iQ">
+                                <rect key="frame" x="263" y="102" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Join"/>
+                                <connections>
+                                    <action selector="joinSession:" destination="BYZ-38-t0r" eventType="touchUpInside" id="88S-9i-yB7"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <connections>
-                        <outlet property="criarLeilaoButton" destination="utC-6P-b1Z" id="SGR-sg-rPO"/>
-                        <outlet property="verLeiloesButton" destination="HlU-l2-ajV" id="l80-vS-aJ7"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -86,7 +95,7 @@
         <!--Lista Leiloes View Controller-->
         <scene sceneID="fvE-t4-g8F">
             <objects>
-                <viewController id="aOx-b7-G88" customClass="listaLeiloesViewController" customModule="t2leilao" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aOx-b7-G88" customClass="listaLeiloesViewController" customModule="MultipeerConectivityTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QUg-ra-hBM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -157,7 +166,7 @@
         <!--Leilao View Controller-->
         <scene sceneID="78X-sk-qrL">
             <objects>
-                <viewController id="Dho-oD-SYU" customClass="leilaoViewController" customModule="t2leilao" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Dho-oD-SYU" customClass="leilaoViewController" customModule="MultipeerConectivityTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wk3-bK-6jO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -224,7 +233,7 @@
         <!--Criar Leilao View Controller-->
         <scene sceneID="vHG-jH-1Tz">
             <objects>
-                <viewController id="bdO-Dc-TCk" customClass="criarLeilaoViewController" customModule="t2leilao" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bdO-Dc-TCk" customClass="criarLeilaoViewController" customModule="MultipeerConectivityTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DDB-Rr-FPe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
