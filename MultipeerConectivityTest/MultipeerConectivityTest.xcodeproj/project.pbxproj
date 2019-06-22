@@ -11,6 +11,7 @@
 		6D53CC7A22BC75A40004A44A /* listaLeiloes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53CC7922BC75A40004A44A /* listaLeiloes.swift */; };
 		6D53CC7C22BC75B00004A44A /* leilaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53CC7B22BC75B00004A44A /* leilaoViewController.swift */; };
 		6D53CC7E22BC75BA0004A44A /* criarLeilaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53CC7D22BC75BA0004A44A /* criarLeilaoViewController.swift */; };
+		6D73F49C22BD6E9E0049D77F /* leilaoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D73F49B22BD6E9E0049D77F /* leilaoCell.swift */; };
 		E77B9BF522BAFBAC00C7999F /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77B9BF422BAFBAC00C7999F /* SessionManager.swift */; };
 		E77B9BF722BAFFC300C7999F /* Leilao.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77B9BF622BAFFC300C7999F /* Leilao.swift */; };
 		E7EAC04822B96DC500C2EB21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAC04722B96DC500C2EB21 /* AppDelegate.swift */; };
@@ -25,6 +26,7 @@
 		6D53CC7922BC75A40004A44A /* listaLeiloes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = listaLeiloes.swift; sourceTree = "<group>"; };
 		6D53CC7B22BC75B00004A44A /* leilaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = leilaoViewController.swift; sourceTree = "<group>"; };
 		6D53CC7D22BC75BA0004A44A /* criarLeilaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = criarLeilaoViewController.swift; sourceTree = "<group>"; };
+		6D73F49B22BD6E9E0049D77F /* leilaoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leilaoCell.swift; sourceTree = "<group>"; };
 		E77B9BF422BAFBAC00C7999F /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		E77B9BF622BAFFC300C7999F /* Leilao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leilao.swift; sourceTree = "<group>"; };
 		E7EAC04422B96DC500C2EB21 /* MultipeerConectivityTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultipeerConectivityTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +75,7 @@
 				6D53CC7922BC75A40004A44A /* listaLeiloes.swift */,
 				6D53CC7D22BC75BA0004A44A /* criarLeilaoViewController.swift */,
 				6D53CC7722BC75610004A44A /* Main.storyboard */,
+				6D73F49B22BD6E9E0049D77F /* leilaoCell.swift */,
 				E7EAC05122B96DC700C2EB21 /* Assets.xcassets */,
 				E7EAC05322B96DC700C2EB21 /* LaunchScreen.storyboard */,
 				E7EAC05622B96DC700C2EB21 /* Info.plist */,
@@ -159,6 +162,7 @@
 				E7EAC04A22B96DC500C2EB21 /* ViewController.swift in Sources */,
 				E77B9BF522BAFBAC00C7999F /* SessionManager.swift in Sources */,
 				E77B9BF722BAFFC300C7999F /* Leilao.swift in Sources */,
+				6D73F49C22BD6E9E0049D77F /* leilaoCell.swift in Sources */,
 				E7EAC04822B96DC500C2EB21 /* AppDelegate.swift in Sources */,
 				6D53CC7C22BC75B00004A44A /* leilaoViewController.swift in Sources */,
 			);

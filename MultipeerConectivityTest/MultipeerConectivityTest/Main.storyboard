@@ -23,7 +23,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Ver leiloes"/>
                                 <connections>
-                                    <segue destination="aOx-b7-G88" kind="show" id="IQa-4f-jbU"/>
+                                    <segue destination="aOx-b7-G88" kind="presentation" id="IQa-4f-jbU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utC-6P-b1Z">
@@ -31,7 +31,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Criar leilao"/>
                                 <connections>
-                                    <segue destination="bdO-Dc-TCk" kind="show" id="duA-P5-Sif"/>
+                                    <action selector="criarLeilaoButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VrO-lZ-pkx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome do produto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viD-BQ-bZB">
@@ -66,6 +66,9 @@
                                 <rect key="frame" x="143" y="637" width="128" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Fechar leilao"/>
+                                <connections>
+                                    <action selector="fecharLeilaoButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fMH-El-OTe"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDt-CE-hVx">
                                 <rect key="frame" x="112" y="102" width="33" height="30"/>
@@ -87,10 +90,18 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="bGQ-Pa-1Ye"/>
+                    <connections>
+                        <outlet property="nomeLeiloeiroLabel" destination="wVR-cC-heF" id="7DX-V7-hf1"/>
+                        <outlet property="nomeProdutoLabel" destination="viD-BQ-bZB" id="7CF-NM-Jlq"/>
+                        <outlet property="precoAtualLabel" destination="tOe-st-ut7" id="2ZO-Bv-fQv"/>
+                        <outlet property="precoInicialLabel" destination="btv-zN-Gyv" id="WlF-wj-wlx"/>
+                        <segue destination="bdO-Dc-TCk" kind="showDetail" identifier="criaLeilao" id="Jdq-eY-Zvo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
+            <point key="canvasLocation" x="177" y="223"/>
         </scene>
         <!--Lista Leiloes View Controller-->
         <scene sceneID="fvE-t4-g8F">
@@ -104,7 +115,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="leilao" rowHeight="130" id="wFq-3M-ic4">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="leilao" rowHeight="130" id="wFq-3M-ic4" customClass="leilaoCell" customModule="MultipeerConectivityTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wFq-3M-ic4" id="dHY-Br-zjT">
@@ -141,6 +152,12 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nomeLeiloeiro" destination="MUU-eG-GCO" id="fI1-cc-67G"/>
+                                            <outlet property="nomeProduto" destination="mx1-6Q-13T" id="ZRL-Z2-KEL"/>
+                                            <outlet property="precoAtual" destination="FL5-5Y-5zP" id="uUa-Lr-5A7"/>
+                                            <outlet property="precoInicial" destination="m6Y-De-CXb" id="gmi-TG-9TU"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -161,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IKT-wf-5g9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1253.6231884057972" y="-108.48214285714285"/>
+            <point key="canvasLocation" x="1254" y="-103"/>
         </scene>
         <!--Leilao View Controller-->
         <scene sceneID="78X-sk-qrL">
@@ -228,7 +245,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TQh-bY-1rJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2098.5507246376815" y="-88.392857142857139"/>
+            <point key="canvasLocation" x="2113" y="-103"/>
         </scene>
         <!--Criar Leilao View Controller-->
         <scene sceneID="vHG-jH-1Tz">

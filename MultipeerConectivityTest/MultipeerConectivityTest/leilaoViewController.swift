@@ -15,12 +15,18 @@ class leilaoViewController: UIViewController {
     @IBOutlet weak var precoInicialLabel: UILabel!
     @IBOutlet weak var precoAtualLabel: UILabel!
     @IBOutlet weak var lanceTextField: UITextField!
+    var leilao: Leilao?
     
-    override func viewDidLoad() {        super.viewDidLoad()
+    override func viewDidLoad() {
+        super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
     @IBAction func darLanceButtonClicked(_ sender: UIButton) {
+        guard let leilao = leilao, let lanceText = lanceTextField.text else { return }
+        if Double(lanceText)! > Double(leilao.valorAtual)! {
+            SessionManager.shared.sendText(text: "darLance-"+leilao.idLeilao.displayName+"-"+lanceText)
+        }
     }
     
 }
