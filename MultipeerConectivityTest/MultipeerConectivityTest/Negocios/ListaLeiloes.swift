@@ -12,7 +12,7 @@ protocol updateLeiloesListDelegate {
     func didChangeLeiloesData()
 }
 
-class listaLeiloesViewController: UIViewController {
+class ListaLeiloesViewController: UIViewController {
     
     @IBOutlet weak var leiloesTableView: UITableView!
     var listaLeiloes = SessionManager.shared.getListProdutos()
@@ -27,7 +27,7 @@ class listaLeiloesViewController: UIViewController {
     
 }
 
-extension listaLeiloesViewController: UITableViewDataSource {
+extension ListaLeiloesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listaLeiloes?.listLeiloes.count ?? 0
     }
@@ -50,7 +50,7 @@ extension listaLeiloesViewController: UITableViewDataSource {
     
 }
 
-extension listaLeiloesViewController: UITableViewDelegate {
+extension ListaLeiloesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "showLeilao", sender: listaLeiloes?.listLeiloes[indexPath.row])
@@ -70,7 +70,7 @@ extension listaLeiloesViewController: UITableViewDelegate {
     
 }
 
-extension listaLeiloesViewController: updateLeiloesListDelegate {
+extension ListaLeiloesViewController: updateLeiloesListDelegate {
     func didChangeLeiloesData() {
         DispatchQueue.main.async {
             self.leiloesTableView.reloadData()

@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6D53CC7822BC75610004A44A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D53CC7722BC75610004A44A /* Main.storyboard */; };
-		6D53CC7A22BC75A40004A44A /* listaLeiloes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53CC7922BC75A40004A44A /* listaLeiloes.swift */; };
-		6D53CC7C22BC75B00004A44A /* leilaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53CC7B22BC75B00004A44A /* leilaoViewController.swift */; };
-		6D53CC7E22BC75BA0004A44A /* criarLeilaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53CC7D22BC75BA0004A44A /* criarLeilaoViewController.swift */; };
+		6D53CC7A22BC75A40004A44A /* ListaLeiloes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53CC7922BC75A40004A44A /* ListaLeiloes.swift */; };
+		6D53CC7C22BC75B00004A44A /* LeilaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53CC7B22BC75B00004A44A /* LeilaoViewController.swift */; };
+		6D53CC7E22BC75BA0004A44A /* CriarLeilaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53CC7D22BC75BA0004A44A /* CriarLeilaoViewController.swift */; };
 		6D73F49C22BD6E9E0049D77F /* leilaoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D73F49B22BD6E9E0049D77F /* leilaoCell.swift */; };
 		E77B9BF522BAFBAC00C7999F /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77B9BF422BAFBAC00C7999F /* SessionManager.swift */; };
 		E77B9BF722BAFFC300C7999F /* Leilao.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77B9BF622BAFFC300C7999F /* Leilao.swift */; };
@@ -23,9 +23,9 @@
 
 /* Begin PBXFileReference section */
 		6D53CC7722BC75610004A44A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		6D53CC7922BC75A40004A44A /* listaLeiloes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = listaLeiloes.swift; sourceTree = "<group>"; };
-		6D53CC7B22BC75B00004A44A /* leilaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = leilaoViewController.swift; sourceTree = "<group>"; };
-		6D53CC7D22BC75BA0004A44A /* criarLeilaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = criarLeilaoViewController.swift; sourceTree = "<group>"; };
+		6D53CC7922BC75A40004A44A /* ListaLeiloes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaLeiloes.swift; sourceTree = "<group>"; };
+		6D53CC7B22BC75B00004A44A /* LeilaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeilaoViewController.swift; sourceTree = "<group>"; };
+		6D53CC7D22BC75BA0004A44A /* CriarLeilaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriarLeilaoViewController.swift; sourceTree = "<group>"; };
 		6D73F49B22BD6E9E0049D77F /* leilaoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leilaoCell.swift; sourceTree = "<group>"; };
 		E77B9BF422BAFBAC00C7999F /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		E77B9BF622BAFFC300C7999F /* Leilao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leilao.swift; sourceTree = "<group>"; };
@@ -49,6 +49,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E79FF69922BEA8F9003DFF00 /* Entidade */ = {
+			isa = PBXGroup;
+			children = (
+				E77B9BF622BAFFC300C7999F /* Leilao.swift */,
+			);
+			path = Entidade;
+			sourceTree = "<group>";
+		};
+		E79FF69A22BEA914003DFF00 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				6D73F49B22BD6E9E0049D77F /* leilaoCell.swift */,
+				6D53CC7722BC75610004A44A /* Main.storyboard */,
+				E7EAC05322B96DC700C2EB21 /* LaunchScreen.storyboard */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		E79FF69B22BEA975003DFF00 /* Persistencia */ = {
+			isa = PBXGroup;
+			children = (
+				E77B9BF422BAFBAC00C7999F /* SessionManager.swift */,
+			);
+			path = Persistencia;
+			sourceTree = "<group>";
+		};
+		E79FF69C22BEAAAB003DFF00 /* Negocios */ = {
+			isa = PBXGroup;
+			children = (
+				6D53CC7922BC75A40004A44A /* ListaLeiloes.swift */,
+				6D53CC7D22BC75BA0004A44A /* CriarLeilaoViewController.swift */,
+				6D53CC7B22BC75B00004A44A /* LeilaoViewController.swift */,
+				E7EAC04922B96DC500C2EB21 /* ViewController.swift */,
+			);
+			path = Negocios;
+			sourceTree = "<group>";
+		};
+		E79FF69D22BEAAC3003DFF00 /* Suport */ = {
+			isa = PBXGroup;
+			children = (
+				E7EAC04E22B96DC500C2EB21 /* MultipeerConectivityTest.xcdatamodeld */,
+				E7EAC05622B96DC700C2EB21 /* Info.plist */,
+				E7EAC05122B96DC700C2EB21 /* Assets.xcassets */,
+				E7EAC04722B96DC500C2EB21 /* AppDelegate.swift */,
+			);
+			path = Suport;
+			sourceTree = "<group>";
+		};
 		E7EAC03B22B96DC500C2EB21 = {
 			isa = PBXGroup;
 			children = (
@@ -68,19 +116,11 @@
 		E7EAC04622B96DC500C2EB21 /* MultipeerConectivityTest */ = {
 			isa = PBXGroup;
 			children = (
-				E7EAC04722B96DC500C2EB21 /* AppDelegate.swift */,
-				E77B9BF422BAFBAC00C7999F /* SessionManager.swift */,
-				E7EAC04922B96DC500C2EB21 /* ViewController.swift */,
-				6D53CC7B22BC75B00004A44A /* leilaoViewController.swift */,
-				6D53CC7922BC75A40004A44A /* listaLeiloes.swift */,
-				6D53CC7D22BC75BA0004A44A /* criarLeilaoViewController.swift */,
-				6D53CC7722BC75610004A44A /* Main.storyboard */,
-				6D73F49B22BD6E9E0049D77F /* leilaoCell.swift */,
-				E7EAC05122B96DC700C2EB21 /* Assets.xcassets */,
-				E7EAC05322B96DC700C2EB21 /* LaunchScreen.storyboard */,
-				E7EAC05622B96DC700C2EB21 /* Info.plist */,
-				E7EAC04E22B96DC500C2EB21 /* MultipeerConectivityTest.xcdatamodeld */,
-				E77B9BF622BAFFC300C7999F /* Leilao.swift */,
+				E79FF69D22BEAAC3003DFF00 /* Suport */,
+				E79FF69C22BEAAAB003DFF00 /* Negocios */,
+				E79FF69B22BEA975003DFF00 /* Persistencia */,
+				E79FF69A22BEA914003DFF00 /* Interface */,
+				E79FF69922BEA8F9003DFF00 /* Entidade */,
 			);
 			path = MultipeerConectivityTest;
 			sourceTree = "<group>";
@@ -156,15 +196,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D53CC7E22BC75BA0004A44A /* criarLeilaoViewController.swift in Sources */,
+				6D53CC7E22BC75BA0004A44A /* CriarLeilaoViewController.swift in Sources */,
 				E7EAC05022B96DC500C2EB21 /* MultipeerConectivityTest.xcdatamodeld in Sources */,
-				6D53CC7A22BC75A40004A44A /* listaLeiloes.swift in Sources */,
+				6D53CC7A22BC75A40004A44A /* ListaLeiloes.swift in Sources */,
 				E7EAC04A22B96DC500C2EB21 /* ViewController.swift in Sources */,
 				E77B9BF522BAFBAC00C7999F /* SessionManager.swift in Sources */,
 				E77B9BF722BAFFC300C7999F /* Leilao.swift in Sources */,
 				6D73F49C22BD6E9E0049D77F /* leilaoCell.swift in Sources */,
 				E7EAC04822B96DC500C2EB21 /* AppDelegate.swift in Sources */,
-				6D53CC7C22BC75B00004A44A /* leilaoViewController.swift in Sources */,
+				6D53CC7C22BC75B00004A44A /* LeilaoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +344,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G8ZLW892T6;
-				INFOPLIST_FILE = MultipeerConectivityTest/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MultipeerConectivityTest/Suport/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,7 +362,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G8ZLW892T6;
-				INFOPLIST_FILE = MultipeerConectivityTest/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MultipeerConectivityTest/Suport/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

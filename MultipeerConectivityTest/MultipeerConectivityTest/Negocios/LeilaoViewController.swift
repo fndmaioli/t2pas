@@ -8,7 +8,7 @@
 
 import UIKit
 
-class leilaoViewController: UIViewController {
+class LeilaoViewController: UIViewController {
     
     var nomeProduto: String?
     var nomeLeiloeiro: String?

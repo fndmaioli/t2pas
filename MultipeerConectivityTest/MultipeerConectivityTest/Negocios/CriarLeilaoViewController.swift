@@ -9,7 +9,7 @@
 import UIKit
 import MultipeerConnectivity
 
-class criarLeilaoViewController: UIViewController {
+class CriarLeilaoViewController: UIViewController {
     
     @IBOutlet weak var nomeProdutoTextField: UITextField!
     @IBOutlet weak var precoInicialTextField: UITextField!
