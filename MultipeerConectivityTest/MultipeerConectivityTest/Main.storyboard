@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bK4-xk-Sxo">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="OGF-Sd-ILm">
+            <objects>
+                <navigationController id="bK4-xk-Sxo" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DUq-oq-wYh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="mdR-fM-gHT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4jC-6R-k5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-814" y="223"/>
+        </scene>
+        <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MultipeerConectivityTest" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,57 +35,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HlU-l2-ajV">
-                                <rect key="frame" x="155" y="212" width="104" height="41"/>
+                                <rect key="frame" x="155" y="210" width="104" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Ver leiloes"/>
                                 <connections>
-                                    <segue destination="aOx-b7-G88" kind="presentation" id="IQa-4f-jbU"/>
+                                    <segue destination="aOx-b7-G88" kind="show" id="mJL-D9-A54"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utC-6P-b1Z">
-                                <rect key="frame" x="155" y="291" width="104" height="41"/>
+                                <rect key="frame" x="155" y="274" width="104" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Criar leilao"/>
                                 <connections>
                                     <action selector="criarLeilaoButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VrO-lZ-pkx"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome do produto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viD-BQ-bZB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viD-BQ-bZB">
                                 <rect key="frame" x="134" y="405" width="147" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome do leiloeiro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVR-cC-heF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVR-cC-heF">
                                 <rect key="frame" x="134" y="459" width="147" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preco Inicial" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btv-zN-Gyv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preco Inicial" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btv-zN-Gyv">
                                 <rect key="frame" x="74" y="513" width="109" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preco atual" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOe-st-ut7">
-                                <rect key="frame" x="191" y="513" width="109" height="46"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preco atual" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOe-st-ut7">
+                                <rect key="frame" x="224" y="513" width="109" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcD-ej-I15">
-                                <rect key="frame" x="143" y="637" width="128" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Fechar leilao"/>
-                                <connections>
-                                    <action selector="fecharLeilaoButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fMH-El-OTe"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDt-CE-hVx">
                                 <rect key="frame" x="112" y="102" width="33" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -86,24 +94,32 @@
                                     <action selector="joinSession:" destination="BYZ-38-t0r" eventType="touchUpInside" id="88S-9i-yB7"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcD-ej-I15">
+                                <rect key="frame" x="143" y="635" width="128" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Fechar leilao"/>
+                                <connections>
+                                    <action selector="fecharLeilaoButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fMH-El-OTe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bGQ-Pa-1Ye"/>
+                    <navigationItem key="navigationItem" title="Home" id="bGQ-Pa-1Ye"/>
                     <connections>
                         <outlet property="nomeLeiloeiroLabel" destination="wVR-cC-heF" id="7DX-V7-hf1"/>
                         <outlet property="nomeProdutoLabel" destination="viD-BQ-bZB" id="7CF-NM-Jlq"/>
                         <outlet property="precoAtualLabel" destination="tOe-st-ut7" id="2ZO-Bv-fQv"/>
                         <outlet property="precoInicialLabel" destination="btv-zN-Gyv" id="WlF-wj-wlx"/>
-                        <segue destination="bdO-Dc-TCk" kind="showDetail" identifier="criaLeilao" id="Jdq-eY-Zvo"/>
+                        <segue destination="bdO-Dc-TCk" kind="show" identifier="criaLeilao" id="4lp-FI-jlL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="177" y="223"/>
+            <point key="canvasLocation" x="277" y="216"/>
         </scene>
-        <!--Lista Leiloes View Controller-->
+        <!--Leiloes-->
         <scene sceneID="fvE-t4-g8F">
             <objects>
                 <viewController id="aOx-b7-G88" customClass="listaLeiloesViewController" customModule="MultipeerConectivityTest" customModuleProvider="target" sceneMemberID="viewController">
@@ -112,7 +128,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q7R-aY-R6F">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="leilao" rowHeight="130" id="wFq-3M-ic4" customClass="leilaoCell" customModule="MultipeerConectivityTest" customModuleProvider="target">
@@ -122,35 +138,45 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="129.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="nome do produto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mx1-6Q-13T">
-                                                    <rect key="frame" x="20" y="11" width="156" height="46"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nome do produto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mx1-6Q-13T">
+                                                    <rect key="frame" x="20" y="23" width="132" height="46"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="nome do leiloeiro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUU-eG-GCO">
-                                                    <rect key="frame" x="184" y="11" width="156" height="46"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nome do leiloeiro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUU-eG-GCO">
+                                                    <rect key="frame" x="185" y="23" width="131" height="46"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="preço inicial" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6Y-De-CXb">
-                                                    <rect key="frame" x="20" y="65" width="102" height="46"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="preço inicial" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6Y-De-CXb">
+                                                    <rect key="frame" x="47" y="90.5" width="102" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="preço atual" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FL5-5Y-5zP">
-                                                    <rect key="frame" x="130" y="65" width="95" height="46"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="preço atual" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FL5-5Y-5zP">
+                                                    <rect key="frame" x="249" y="90.5" width="86" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="MUU-eG-GCO" firstAttribute="leading" secondItem="m6Y-De-CXb" secondAttribute="trailing" constant="36" id="1je-qm-I4b"/>
+                                                <constraint firstItem="mx1-6Q-13T" firstAttribute="top" secondItem="dHY-Br-zjT" secondAttribute="topMargin" constant="12" id="BtH-Wd-uFE"/>
+                                                <constraint firstItem="m6Y-De-CXb" firstAttribute="leading" secondItem="dHY-Br-zjT" secondAttribute="leadingMargin" constant="27" id="Ddq-RI-LJa"/>
+                                                <constraint firstItem="MUU-eG-GCO" firstAttribute="top" secondItem="dHY-Br-zjT" secondAttribute="topMargin" constant="12" id="Ihd-5X-DTo"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="MUU-eG-GCO" secondAttribute="bottom" constant="50" id="Iq3-WL-pre"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="FL5-5Y-5zP" secondAttribute="trailing" constant="59" id="hTp-Pm-5wp"/>
+                                                <constraint firstItem="MUU-eG-GCO" firstAttribute="leading" secondItem="mx1-6Q-13T" secondAttribute="trailing" constant="33" id="jH4-YQ-Z0g"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="m6Y-De-CXb" secondAttribute="bottom" constant="8" id="jcS-gG-FWV"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="mx1-6Q-13T" secondAttribute="bottom" constant="50" id="mSv-W4-ZVt"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="FL5-5Y-5zP" secondAttribute="bottom" constant="8" id="mys-Wm-icR"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="MUU-eG-GCO" secondAttribute="trailing" constant="78" id="ogA-kk-mVJ"/>
+                                                <constraint firstItem="mx1-6Q-13T" firstAttribute="leading" secondItem="dHY-Br-zjT" secondAttribute="leadingMargin" id="pxY-N2-DEE"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nomeLeiloeiro" destination="MUU-eG-GCO" id="fI1-cc-67G"/>
@@ -171,6 +197,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7lu-j8-1uY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Leiloes" id="sIt-RC-1Xs"/>
                     <connections>
                         <outlet property="leiloesTableView" destination="q7R-aY-R6F" id="Abq-bz-O1Z"/>
                         <segue destination="Dho-oD-SYU" kind="show" identifier="showLeilao" id="lbm-pQ-6Xo"/>
@@ -247,7 +274,7 @@
             </objects>
             <point key="canvasLocation" x="2113" y="-103"/>
         </scene>
-        <!--Criar Leilao View Controller-->
+        <!--Criar Leilao-->
         <scene sceneID="vHG-jH-1Tz">
             <objects>
                 <viewController id="bdO-Dc-TCk" customClass="criarLeilaoViewController" customModule="MultipeerConectivityTest" customModuleProvider="target" sceneMemberID="viewController">
@@ -288,6 +315,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="GPA-Jh-F9h"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Criar Leilao" id="GiN-Ud-rzU"/>
                     <connections>
                         <outlet property="nomeLeiloeiroTextField" destination="qXe-fh-Ps6" id="NdN-RD-8dg"/>
                         <outlet property="nomeProdutoTextField" destination="RBT-tr-GiL" id="cea-in-wEG"/>

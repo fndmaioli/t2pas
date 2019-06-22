@@ -57,13 +57,15 @@ extension listaLeiloesViewController: UITableViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let viewController = segue.destination as? leilaoViewController, let leilao = sender as? Leilao {
-            viewController.nomeProdutoLabel.text = leilao.nome
-            viewController.nomeLeiloeiroLabel.text = leilao.nomeLeiloeiro
-            viewController.precoInicialLabel.text = leilao.valorInicial
-            viewController.precoAtualLabel.text = leilao.valorAtual
+        
+        guard let viewController = segue.destination as? leilaoViewController, let leilao = sender as? Leilao else {return}
+        //if let viewController = segue.destination as? leilaoViewController, let leilao = sender as? Leilao {
+            viewController.nomeProduto = leilao.nome
+            viewController.nomeLeiloeiro = leilao.nomeLeiloeiro
+            viewController.precoInicial = leilao.valorInicial
+            viewController.precoAtual = leilao.valorAtual
             viewController.leilao = leilao
-        }
+        //}
     }
     
 }

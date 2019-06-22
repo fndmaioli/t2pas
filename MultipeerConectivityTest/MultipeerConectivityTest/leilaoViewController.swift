@@ -9,6 +9,12 @@
 import UIKit
 
 class leilaoViewController: UIViewController {
+    
+    var nomeProduto: String?
+    var nomeLeiloeiro: String?
+    var precoInicial: String?
+    var precoAtual: String?
+    var lance: String?
 
     @IBOutlet weak var nomeProdutoLabel: UILabel!
     @IBOutlet weak var nomeLeiloeiroLabel: UILabel!
@@ -19,7 +25,12 @@ class leilaoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        nomeProdutoLabel.text = nomeProduto
+        nomeLeiloeiroLabel.text = nomeLeiloeiro
+        precoInicialLabel.text = precoInicial
+        precoAtualLabel.text = precoAtual
+       // lanceTextField.text = lance
     }
     
     @IBAction func darLanceButtonClicked(_ sender: UIButton) {
