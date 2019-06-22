@@ -9,12 +9,18 @@
 import Foundation
 import MultipeerConnectivity
 
+enum EstadoLeilao {
+    case OPEN
+    case CLOSED
+}
+
 struct Leilao {
     var idLeilao: MCPeerID
     var nome: String
     var nomeLeiloeiro: String
     var valorInicial: String
     var valorAtual: String
+    var estadoLeilao: EstadoLeilao
     
     init(idLeilao: MCPeerID,nome: String, nomeLeiloeiro: String, valorInicial: String) {
         self.idLeilao = idLeilao
@@ -22,6 +28,11 @@ struct Leilao {
         self.nomeLeiloeiro = nomeLeiloeiro
         self.valorInicial = valorInicial
         self.valorAtual = valorInicial
+        estadoLeilao = .OPEN
+    }
+    
+    mutating func setEstadoLeilao(novoEstado: EstadoLeilao){
+        self.estadoLeilao = novoEstado
     }
 }
 
@@ -34,8 +45,14 @@ struct ListaLeilao {
     }
     
     mutating func removeLeilao(leilaoId: MCPeerID){
-        listLeiloes.removeAll { (leilao) -> Bool in
-            return leilao.idLeilao == leilaoId
+        listLeiloes.removeAll { ( leilao) -> Bool in
+            if leilao.idLeilao == leilaoId {
+                var leilaoRemoved = leilao
+                leilaoRemoved.setEstadoLeilao(novoEstado: .CLOSED)
+                ListaLeilaoFechado.shared.addLeilao(leilao: leilaoRemoved)
+                return true
+            }
+            return false
         }
     }
     
@@ -49,4 +66,18 @@ struct ListaLeilao {
         return nil
     }
     
+}
+
+struct ListaLeilaoFechado {
+    
+    static var shared = ListaLeilaoFechado()
+    var listaLeilaoFechado: [Leilao]
+    
+    private init(){
+        listaLeilaoFechado = []
+    }
+    
+    mutating func addLeilao(leilao: Leilao){
+        listaLeilaoFechado.append(leilao)
+    }
 }
