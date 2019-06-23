@@ -34,13 +34,15 @@ extension ListaLeiloesAdminViewController: UITableViewDataSource {
         
         cell.nomeLeiloeiro.text = leilao.nomeLeiloeiro
         cell.nomeProduto.text = leilao.nome
-        cell.precoInicial.text = leilao.valorInicial
-        cell.precoAtual.text = leilao.valorAtual
+        cell.precoInicial.text = "Valor Inicial: R$\(leilao.valorInicial)"
+        cell.precoAtual.text = "Valor Atual: R$\(leilao.valorAtual)"
         cell.leilaoID.text = leilao.idLeilao
         if leilao.estadoLeilao == .CLOSED {
             cell.estadoLeilao.text = "Fechado"
+            cell.estadoLeilao.textColor = .red
         } else {
             cell.estadoLeilao.text = "Aberto"
+            cell.estadoLeilao.textColor = .green
         }
         
         return cell

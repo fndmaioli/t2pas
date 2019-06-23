@@ -9,7 +9,7 @@
 import Foundation
 import MultipeerConnectivity
 
-enum EstadoLeilao {
+enum EstadoLeilao  {
     case OPEN
     case CLOSED
 }
@@ -76,6 +76,7 @@ struct ListaLeilaoGeral {
     
     static var shared = ListaLeilaoGeral()
     var listaLeilao: [Leilao]
+
     
     private init(){
         listaLeilao = []
@@ -84,6 +85,7 @@ struct ListaLeilaoGeral {
     mutating func addLeilao(leilao: Leilao){
         listaLeilao.append(leilao)
     }
+
 }
 
 struct ListaLeilaoAdmin {

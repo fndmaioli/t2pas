@@ -12,6 +12,8 @@
 		6D53CC7C22BC75B00004A44A /* LeilaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53CC7B22BC75B00004A44A /* LeilaoViewController.swift */; };
 		6D53CC7E22BC75BA0004A44A /* CriarLeilaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53CC7D22BC75BA0004A44A /* CriarLeilaoViewController.swift */; };
 		6D73F49C22BD6E9E0049D77F /* leilaoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D73F49B22BD6E9E0049D77F /* leilaoCell.swift */; };
+		E723B97222BFF19100547393 /* ListaLeiloesGeral.swift in Sources */ = {isa = PBXBuildFile; fileRef = E723B97122BFF19100547393 /* ListaLeiloesGeral.swift */; };
+		E723B97422BFF19300547393 /* ListaLeiloesAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E723B97322BFF19300547393 /* ListaLeiloesAdmin.swift */; };
 		E77B9BF522BAFBAC00C7999F /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77B9BF422BAFBAC00C7999F /* SessionManager.swift */; };
 		E77B9BF722BAFFC300C7999F /* Leilao.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77B9BF622BAFFC300C7999F /* Leilao.swift */; };
 		E7EAC04822B96DC500C2EB21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAC04722B96DC500C2EB21 /* AppDelegate.swift */; };
@@ -27,6 +29,8 @@
 		6D53CC7B22BC75B00004A44A /* LeilaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeilaoViewController.swift; sourceTree = "<group>"; };
 		6D53CC7D22BC75BA0004A44A /* CriarLeilaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriarLeilaoViewController.swift; sourceTree = "<group>"; };
 		6D73F49B22BD6E9E0049D77F /* leilaoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leilaoCell.swift; sourceTree = "<group>"; };
+		E723B97122BFF19100547393 /* ListaLeiloesGeral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaLeiloesGeral.swift; sourceTree = "<group>"; };
+		E723B97322BFF19300547393 /* ListaLeiloesAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaLeiloesAdmin.swift; sourceTree = "<group>"; };
 		E77B9BF422BAFBAC00C7999F /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		E77B9BF622BAFFC300C7999F /* Leilao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leilao.swift; sourceTree = "<group>"; };
 		E7EAC04422B96DC500C2EB21 /* MultipeerConectivityTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultipeerConectivityTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +82,8 @@
 		E79FF69C22BEAAAB003DFF00 /* Negocios */ = {
 			isa = PBXGroup;
 			children = (
+				E723B97322BFF19300547393 /* ListaLeiloesAdmin.swift */,
+				E723B97122BFF19100547393 /* ListaLeiloesGeral.swift */,
 				6D53CC7922BC75A40004A44A /* ListaLeiloes.swift */,
 				6D53CC7D22BC75BA0004A44A /* CriarLeilaoViewController.swift */,
 				6D53CC7B22BC75B00004A44A /* LeilaoViewController.swift */,
@@ -199,9 +205,11 @@
 				6D53CC7E22BC75BA0004A44A /* CriarLeilaoViewController.swift in Sources */,
 				E7EAC05022B96DC500C2EB21 /* MultipeerConectivityTest.xcdatamodeld in Sources */,
 				6D53CC7A22BC75A40004A44A /* ListaLeiloes.swift in Sources */,
+				E723B97222BFF19100547393 /* ListaLeiloesGeral.swift in Sources */,
 				E7EAC04A22B96DC500C2EB21 /* ViewController.swift in Sources */,
 				E77B9BF522BAFBAC00C7999F /* SessionManager.swift in Sources */,
 				E77B9BF722BAFFC300C7999F /* Leilao.swift in Sources */,
+				E723B97422BFF19300547393 /* ListaLeiloesAdmin.swift in Sources */,
 				6D73F49C22BD6E9E0049D77F /* leilaoCell.swift in Sources */,
 				E7EAC04822B96DC500C2EB21 /* AppDelegate.swift in Sources */,
 				6D53CC7C22BC75B00004A44A /* LeilaoViewController.swift in Sources */,
@@ -343,7 +351,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G8ZLW892T6;
+				DEVELOPMENT_TEAM = RL63GUXBB4;
 				INFOPLIST_FILE = "$(SRCROOT)/MultipeerConectivityTest/Suport/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -361,7 +369,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G8ZLW892T6;
+				DEVELOPMENT_TEAM = RL63GUXBB4;
 				INFOPLIST_FILE = "$(SRCROOT)/MultipeerConectivityTest/Suport/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

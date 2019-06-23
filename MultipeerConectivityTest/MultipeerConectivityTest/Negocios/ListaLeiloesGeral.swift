@@ -12,16 +12,18 @@ import UIKit
 class ListaLeiloesGeralViewController: UIViewController {
     
     @IBOutlet weak var leiloesTableView: UITableView!
-    var listaLeiloes = ListaLeilao.shared
+//    var listaLeiloes = ListaLeilao.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         leiloesTableView.dataSource = self
         SessionManager.shared.updateLeiloesDelegate = self
+        
+  
+        }
     }
-    
-}
+
 
 extension ListaLeiloesGeralViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,12 +36,14 @@ extension ListaLeiloesGeralViewController: UITableViewDataSource {
         
         cell.nomeLeiloeiro.text = leilao.nomeLeiloeiro
         cell.nomeProduto.text = leilao.nome
-        cell.precoInicial.text = leilao.valorInicial
-        cell.precoAtual.text = leilao.valorAtual
+        cell.precoInicial.text = "Valor inicial: R$\(leilao.valorInicial)"
+        cell.precoAtual.text = "Valor atual: R$\(leilao.valorAtual)"
         if leilao.estadoLeilao == .CLOSED {
             cell.estadoLeilao.text = "Fechado"
+            cell.estadoLeilao.textColor = .red
         } else {
             cell.estadoLeilao.text = "Aberto"
+            cell.estadoLeilao.textColor = .green
         }
         
         return cell

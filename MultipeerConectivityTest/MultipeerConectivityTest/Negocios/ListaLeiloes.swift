@@ -23,6 +23,10 @@ class ListaLeiloesViewController: UIViewController {
         leiloesTableView.dataSource = self
         leiloesTableView.delegate = self
         SessionManager.shared.updateLeiloesDelegate = self
+        
+        DispatchQueue.main.async {
+            self.leiloesTableView.reloadData()
+        }
     }
     
 }
@@ -38,8 +42,8 @@ extension ListaLeiloesViewController: UITableViewDataSource {
 
         cell.nomeLeiloeiro.text = leilao.nomeLeiloeiro
         cell.nomeProduto.text = leilao.nome
-        cell.precoInicial.text = leilao.valorInicial
-        cell.precoAtual.text = leilao.valorAtual
+        cell.precoInicial.text = "Valor inicial: \(leilao.valorInicial)"
+        cell.precoAtual.text = "Valor atual: \(leilao.valorAtual)"
         
         return cell
     }
@@ -60,9 +64,10 @@ extension ListaLeiloesViewController: UITableViewDelegate {
         //if let viewController = segue.destination as? leilaoViewController, let leilao = sender as? Leilao {
             viewController.nomeProduto = leilao.nome
             viewController.nomeLeiloeiro = leilao.nomeLeiloeiro
-            viewController.precoInicial = leilao.valorInicial
-            viewController.precoAtual = leilao.valorAtual
+        viewController.precoInicial = "Preco inicial: \(leilao.valorInicial)"
+        viewController.precoAtual = "Preco atual: \(leilao.valorAtual)"
             viewController.leilao = leilao
+    
         //}
     }
     

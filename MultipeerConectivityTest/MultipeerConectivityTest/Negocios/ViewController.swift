@@ -17,6 +17,8 @@ protocol CreateLeilaoDelegate {
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var leilaoAndamentoLabel: UILabel!
+    @IBOutlet weak var fecharLeilaoButton: UIButton!
     @IBOutlet weak var nomeProdutoLabel: UILabel!
     @IBOutlet weak var nomeLeiloeiroLabel: UILabel!
     @IBOutlet weak var precoInicialLabel: UILabel!
@@ -67,6 +69,8 @@ class ViewController: UIViewController {
         self.nomeLeiloeiroLabel.text = ""
         self.precoInicialLabel.text = ""
         self.precoAtualLabel.text = ""
+        self.fecharLeilaoButton.isHidden = true
+        self.leilaoAndamentoLabel.isHidden = true
         guard let leilao = leilao else { return }
         ListaLeilao.shared.removeLeilao(leilaoId: leilao.idLeilao)
         SessionManager.shared.sendText(text: "fecharLeilao-"+leilao.idLeilao)
@@ -83,10 +87,12 @@ extension ViewController: CreateLeilaoDelegate {
         if leilao.idLeilao == UIDevice.current.name {
             DispatchQueue.main.async {
                 self.leilao = leilao
-                self.nomeProdutoLabel.text = leilao.nome
-                self.nomeLeiloeiroLabel.text = leilao.nomeLeiloeiro
-                self.precoInicialLabel.text = leilao.valorInicial
-                self.precoAtualLabel.text = leilao.valorAtual
+                self.nomeProdutoLabel.text = "Produto: \(leilao.nome)"
+                self.nomeLeiloeiroLabel.text = "Leiloeiro: \(leilao.nomeLeiloeiro)"
+                self.precoInicialLabel.text = "Preço Inicial: R$\(leilao.valorInicial)"
+                self.precoAtualLabel.text = "Preço atual: R$\(leilao.valorAtual)"
+                self.fecharLeilaoButton.isHidden  = false
+                self.leilaoAndamentoLabel.isHidden = false
             }
         }
     }
