@@ -12,7 +12,7 @@ import MultipeerConnectivity
 protocol CreateLeilaoDelegate {
     
     func didCreateLeilao(leilao: Leilao)
-    
+    func hasActiveLeilao() -> Bool
 }
 
 class ViewController: UIViewController {
@@ -23,10 +23,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var precoAtualLabel: UILabel!
     var leilao: Leilao?
     
+    @IBOutlet weak var adminButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        SessionManager.shared.createLeilaoDelegate = self
         
+        SessionManager.shared.createLeilaoDelegate = self
+        adminButton.isHidden = true
 //        DispatchQueue.main.async {
 //            if let produto: Produto = SessionManager.shared.getListProdutos()?.listProdutos[0] {
 //                self.label.text = produto.valor
@@ -39,7 +42,7 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let viewController = segue.destination as? criarLeilaoViewController {
+        if let viewController = segue.destination as? CriarLeilaoViewController {
             viewController.createLeilaoDelegate = self
         }
     }
@@ -51,6 +54,7 @@ class ViewController: UIViewController {
     
     @IBAction func hostButton(_ sender: UIButton) {
         SessionManager.shared.startHosting()
+        adminButton.isHidden = false
     }
     
     @IBAction func joinSession(_ sender: UIButton) {
@@ -59,23 +63,31 @@ class ViewController: UIViewController {
     }
     
     @IBAction func fecharLeilaoButtonClicked(_ sender: UIButton) {
-        self.nomeProdutoLabel.text = "Nome do produto"
-        self.nomeLeiloeiroLabel.text = "Nome do leiloeiro"
-        self.precoInicialLabel.text = "Preco inicial"
-        self.precoAtualLabel.text = "Preco atual"
+        self.nomeProdutoLabel.text = ""
+        self.nomeLeiloeiroLabel.text = ""
+        self.precoInicialLabel.text = ""
+        self.precoAtualLabel.text = ""
         guard let leilao = leilao else { return }
-        SessionManager.shared.sendText(text: "fecharLeilao-"+leilao.idLeilao.displayName)
+        ListaLeilao.shared.removeLeilao(leilaoId: leilao.idLeilao)
+        SessionManager.shared.sendText(text: "fecharLeilao-"+leilao.idLeilao)
+        self.leilao = nil
     }
 }
 extension ViewController: CreateLeilaoDelegate {
     
+    func hasActiveLeilao() -> Bool {
+        return self.leilao != nil
+    }
+    
     func didCreateLeilao(leilao: Leilao) {
-        if leilao.idLeilao == MCPeerID(displayName: UIDevice.current.name) {
-            self.leilao = leilao
-            self.nomeProdutoLabel.text = leilao.nome
-            self.nomeLeiloeiroLabel.text = leilao.nomeLeiloeiro
-            self.precoInicialLabel.text = leilao.valorInicial
-            self.precoAtualLabel.text = leilao.valorAtual
-        } 
+        if leilao.idLeilao == UIDevice.current.name {
+            DispatchQueue.main.async {
+                self.leilao = leilao
+                self.nomeProdutoLabel.text = leilao.nome
+                self.nomeLeiloeiroLabel.text = leilao.nomeLeiloeiro
+                self.precoInicialLabel.text = leilao.valorInicial
+                self.precoAtualLabel.text = leilao.valorAtual
+            }
+        }
     }
 }

@@ -15,14 +15,14 @@ enum EstadoLeilao {
 }
 
 struct Leilao {
-    var idLeilao: MCPeerID
+    var idLeilao: String
     var nome: String
     var nomeLeiloeiro: String
     var valorInicial: String
     var valorAtual: String
     var estadoLeilao: EstadoLeilao
     
-    init(idLeilao: MCPeerID,nome: String, nomeLeiloeiro: String, valorInicial: String) {
+    init(idLeilao: String,nome: String, nomeLeiloeiro: String, valorInicial: String) {
         self.idLeilao = idLeilao
         self.nome = nome
         self.nomeLeiloeiro = nomeLeiloeiro
@@ -40,44 +40,62 @@ struct ListaLeilao {
     
     var listLeiloes : [Leilao]
     
+    static var shared = ListaLeilao()
+    
+    private init(){
+        listLeiloes = []
+    }
+    
     mutating func addLeilao(leilao: Leilao){
         listLeiloes.append(leilao)
     }
     
-    mutating func removeLeilao(leilaoId: MCPeerID){
+    mutating func removeLeilao(leilaoId: String){
         listLeiloes.removeAll { ( leilao) -> Bool in
             if leilao.idLeilao == leilaoId {
                 var leilaoRemoved = leilao
                 leilaoRemoved.setEstadoLeilao(novoEstado: .CLOSED)
-                ListaLeilaoFechado.shared.addLeilao(leilao: leilaoRemoved)
                 return true
             }
             return false
         }
     }
     
-    func searchLeilaoById(id: MCPeerID) -> Leilao? {
+    func searchLeilaoById(id: String) -> Leilao? {
         for leilao in listLeiloes {
             if leilao.idLeilao == id {
                 return leilao
             }
         }
-        
         return nil
     }
     
 }
 
-struct ListaLeilaoFechado {
+struct ListaLeilaoGeral {
     
-    static var shared = ListaLeilaoFechado()
-    var listaLeilaoFechado: [Leilao]
+    static var shared = ListaLeilaoGeral()
+    var listaLeilao: [Leilao]
     
     private init(){
-        listaLeilaoFechado = []
+        listaLeilao = []
     }
     
     mutating func addLeilao(leilao: Leilao){
-        listaLeilaoFechado.append(leilao)
+        listaLeilao.append(leilao)
+    }
+}
+
+struct ListaLeilaoAdmin {
+    
+    static var shared = ListaLeilaoAdmin()
+    var listaLeilao: [Leilao]
+    
+    private init(){
+        listaLeilao = []
+    }
+    
+    mutating func addLeilao(leilao: Leilao){
+        listaLeilao.append(leilao)
     }
 }

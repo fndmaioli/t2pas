@@ -10,9 +10,12 @@ import Foundation
 import UIKit
 
 class leilaoCell: UITableViewCell {
-    
+
+    @IBOutlet weak var estadoLeilao: UILabel!
     @IBOutlet weak var nomeLeiloeiro: UILabel!
     @IBOutlet weak var nomeProduto: UILabel!
     @IBOutlet weak var precoInicial: UILabel!
     @IBOutlet weak var precoAtual: UILabel!
+    @IBOutlet weak var leilaoID: UILabel!
 }
+

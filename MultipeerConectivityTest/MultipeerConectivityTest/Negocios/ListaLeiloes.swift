@@ -15,7 +15,7 @@ protocol updateLeiloesListDelegate {
 class ListaLeiloesViewController: UIViewController {
     
     @IBOutlet weak var leiloesTableView: UITableView!
-    var listaLeiloes = SessionManager.shared.getListProdutos()
+    var listaLeiloes = ListaLeilao.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,19 +29,17 @@ class ListaLeiloesViewController: UIViewController {
 
 extension ListaLeiloesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listaLeiloes?.listLeiloes.count ?? 0
+        return ListaLeilao.shared.listLeiloes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = leiloesTableView.dequeueReusableCell(withIdentifier: "leilao") as! leilaoCell
-        let leilao = listaLeiloes?.listLeiloes[indexPath.row]
-        print("to no dequeue")
-        print(leilao)
+        let leilao = ListaLeilao.shared.listLeiloes[indexPath.row]
 
-        cell.nomeLeiloeiro.text = leilao?.nomeLeiloeiro
-        cell.nomeProduto.text = leilao?.nome
-        cell.precoInicial.text = leilao?.valorInicial
-        cell.precoAtual.text = leilao?.valorAtual
+        cell.nomeLeiloeiro.text = leilao.nomeLeiloeiro
+        cell.nomeProduto.text = leilao.nome
+        cell.precoInicial.text = leilao.valorInicial
+        cell.precoAtual.text = leilao.valorAtual
         
         return cell
     }
@@ -53,12 +51,12 @@ extension ListaLeiloesViewController: UITableViewDataSource {
 extension ListaLeiloesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "showLeilao", sender: listaLeiloes?.listLeiloes[indexPath.row])
+        self.performSegue(withIdentifier: "showLeilao", sender: listaLeiloes.listLeiloes[indexPath.row])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let viewController = segue.destination as? leilaoViewController, let leilao = sender as? Leilao else {return}
+        guard let viewController = segue.destination as? LeilaoViewController, let leilao = sender as? Leilao else {return}
         //if let viewController = segue.destination as? leilaoViewController, let leilao = sender as? Leilao {
             viewController.nomeProduto = leilao.nome
             viewController.nomeLeiloeiro = leilao.nomeLeiloeiro
@@ -75,8 +73,6 @@ extension ListaLeiloesViewController: updateLeiloesListDelegate {
         DispatchQueue.main.async {
             self.leiloesTableView.reloadData()
         }
-        print("DKSAPODKSAPOD")
-        print(listaLeiloes)
     }
     
 }

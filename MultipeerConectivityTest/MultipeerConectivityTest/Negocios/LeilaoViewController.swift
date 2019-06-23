@@ -34,9 +34,10 @@ class LeilaoViewController: UIViewController {
     }
     
     @IBAction func darLanceButtonClicked(_ sender: UIButton) {
-        guard let leilao = leilao, let lanceText = lanceTextField.text else { return }
+        guard let leilao = self.leilao, let lanceText = self.lanceTextField.text else { return }
         if Double(lanceText)! > Double(leilao.valorAtual)! {
-            SessionManager.shared.sendText(text: "darLance-"+leilao.idLeilao.displayName+"-"+lanceText)
+            SessionManager.shared.sendText(text: "darLance-"+leilao.idLeilao+"-"+lanceText)
+            SessionManager.shared.updateLeiloesDelegate?.didChangeLeiloesData()
         }
     }
     

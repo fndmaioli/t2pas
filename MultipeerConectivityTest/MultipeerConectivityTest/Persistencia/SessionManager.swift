@@ -10,7 +10,7 @@ class SessionManager: NSObject{
     var isHost: Bool = false
     var mcSession: MCSession!
     var mcAdvertierAssistant: MCAdvertiserAssistant!
-    var listaLeilao: ListaLeilao = ListaLeilao(listLeiloes: [])
+//    var listaLeilao: ListaLeilao = ListaLeilao.shared
     var updateLeiloesDelegate: updateLeiloesListDelegate?
     var createLeilaoDelegate: CreateLeilaoDelegate?
 
@@ -45,13 +45,13 @@ extension SessionManager: MCSessionDelegate, MCBrowserViewControllerDelegate {
             print("Default")
         }
     }
-    
-    func getListProdutos() -> ListaLeilao? {
-        if listaLeilao != nil {
-            return listaLeilao
-        }
-        return nil
-    }
+
+//    func getListProdutos() -> ListaLeilao? {
+//        if listaLeilao != nil {
+//            return listaLeilao
+//        }
+//        return nil
+//    }
 
     //espera os dados que vieram e trata eles
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
@@ -59,19 +59,19 @@ extension SessionManager: MCSessionDelegate, MCBrowserViewControllerDelegate {
             let textArray = text.split(separator: Character("-"))
             if textArray[0] == "criarLeilao" {
                 // "criarLeilao-idLeilao-nomeProduto-nomeLeiloeiro-valorInicial-valorAtual"
-                let leilao = Leilao.init(idLeilao: MCPeerID(displayName: String(textArray[1])), nome: String(textArray[2]), nomeLeiloeiro: String(textArray[3]), valorInicial: String(textArray[4]))
-                self.listaLeilao.addLeilao(leilao: leilao)
-                print(self.listaLeilao.listLeiloes)
+                let leilao = Leilao.init(idLeilao: String(textArray[1]), nome: String(textArray[2]), nomeLeiloeiro: String(textArray[3]), valorInicial: String(textArray[4]))
+//                ListaLeilao.shared.addLeilao(leilao: leilao)
+                ListaLeilao.shared.addLeilao(leilao: leilao)
+                ListaLeilaoAdmin.shared.addLeilao(leilao: leilao)
                 self.updateLeiloesDelegate?.didChangeLeiloesData()
-                print(leilao)
             } else if textArray[0] == "fecharLeilao" {
                 // "fecharLeilao-idLeilao"
-                listaLeilao.removeLeilao(leilaoId: MCPeerID(displayName: String(textArray[1])))
+                ListaLeilao.shared.removeLeilao(leilaoId: String(textArray[1]))
                 self.updateLeiloesDelegate?.didChangeLeiloesData()
                 
             } else if textArray [0] == "darLance" {
                 // "darLance-idLeilao-valorLance"
-                var leilao = listaLeilao.searchLeilaoById(id: MCPeerID(displayName: String(textArray[1])))
+                var leilao = ListaLeilao.shared.searchLeilaoById(id: String(textArray[1]))
                 leilao?.valorAtual = String(textArray[2])
                 self.updateLeiloesDelegate?.didChangeLeiloesData()
                 self.createLeilaoDelegate?.didCreateLeilao(leilao: leilao!)
@@ -113,7 +113,6 @@ extension SessionManager {
                     try mcSession.send(textData, toPeers: mcSession.connectedPeers, with: .reliable)
                 } catch let error as NSError {
                     print(error.localizedDescription)
-                    print("DKSAPODKASOPDKSAPDSKDSA")
                 }
             }
         }

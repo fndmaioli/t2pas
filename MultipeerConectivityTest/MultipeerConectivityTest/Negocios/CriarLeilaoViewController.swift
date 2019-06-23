@@ -22,10 +22,14 @@ class CriarLeilaoViewController: UIViewController {
     }
     
     @IBAction func finalizarCriacaoButonClicked(_ sender: UIButton) {
-        var list = SessionManager.shared.getListProdutos()
+        if (createLeilaoDelegate?.hasActiveLeilao())! {
+            return
+        }
         if let nomeProduto = nomeProdutoTextField.text, let nomeLeiloeiro = nomeLeiloeiroTextField.text, let valorInicial = precoInicialTextField.text {
-            let leilao = Leilao.init(idLeilao: MCPeerID(displayName: UIDevice.current.name), nome: nomeProduto, nomeLeiloeiro: nomeLeiloeiro, valorInicial: valorInicial)
-            SessionManager.shared.sendText(text: "criarLeilao-"+leilao.idLeilao.displayName+"-"+nomeProduto+"-"+nomeLeiloeiro+"-"+valorInicial+"-"+valorInicial)
+            let leilao = Leilao.init(idLeilao: UIDevice.current.name, nome: nomeProduto, nomeLeiloeiro: nomeLeiloeiro, valorInicial: valorInicial)
+            SessionManager.shared.sendText(text: "criarLeilao-"+leilao.idLeilao+"-"+nomeProduto+"-"+nomeLeiloeiro+"-"+valorInicial+"-"+valorInicial)
+            ListaLeilao.shared.addLeilao(leilao: leilao)
+            ListaLeilaoGeral.shared.addLeilao(leilao: leilao)
             self.createLeilaoDelegate?.didCreateLeilao(leilao: leilao)
         }
         
