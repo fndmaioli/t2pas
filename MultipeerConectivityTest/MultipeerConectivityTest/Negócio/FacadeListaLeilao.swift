@@ -20,4 +20,10 @@ struct FacadeListaLeilao {
         ListaLeilaoAdmin.shared.trocaEstadoLeilao(id: id)
         ListaLeilaoGeral.shared.trocaEstadoLeilao(id: id)
     }
+    
+    func addLeilao(leilao: Leilao) {
+        ListaLeilaoAdmin.shared.addLeilao(leilao: leilao)
+        ListaLeilaoGeral.shared.addLeilao(leilao: leilao)
+        ListaLeilao.shared.addLeilao(leilao: leilao)
+    }
 }

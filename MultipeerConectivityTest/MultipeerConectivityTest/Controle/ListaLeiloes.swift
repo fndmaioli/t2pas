@@ -28,7 +28,6 @@ class ListaLeiloesViewController: UIViewController {
             self.leiloesTableView.reloadData()
         }
     }
-    
 }
 
 extension ListaLeiloesViewController: UITableViewDataSource {
@@ -47,9 +46,6 @@ extension ListaLeiloesViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
-    
 }
 
 extension ListaLeiloesViewController: UITableViewDelegate {
@@ -67,8 +63,6 @@ extension ListaLeiloesViewController: UITableViewDelegate {
             viewController.precoInicial = "Preco inicial: \(leilao.valorInicial)"
             viewController.precoAtual = "Preco atual: \(leilao.valorAtual)"
             viewController.leilao = leilao
-    
-        //}
     }
     
 }

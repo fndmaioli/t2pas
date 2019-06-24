@@ -30,7 +30,6 @@ class LeilaoViewController: UIViewController {
         nomeLeiloeiroLabel.text = nomeLeiloeiro
         precoInicialLabel.text = precoInicial
         precoAtualLabel.text = precoAtual
-       // lanceTextField.text = lance
     }
     
     @IBAction func darLanceButtonClicked(_ sender: UIButton) {

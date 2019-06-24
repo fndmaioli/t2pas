@@ -41,11 +41,16 @@ struct ListaLeilao: Codable {
     static var shared = ListaLeilao()
     
     private init(){
-        listLeiloes = []
+        guard let listaLeiloes = ListaLeiloesAtivosDAO().getListaLeilao() else {
+            listLeiloes = []
+            return
+        }
+        self.listLeiloes = listaLeiloes
     }
     
     mutating func addLeilao(leilao: Leilao){
         listLeiloes.append(leilao)
+        ListaLeiloesAtivosDAO().updateData(listaLeilao: self.listLeiloes)
     }
     
     mutating func alteraValorAtual(valor:String, id: String){
@@ -54,6 +59,7 @@ struct ListaLeilao: Codable {
                 self.listLeiloes[i].valorAtual = valor
             }
         }
+        ListaLeiloesAtivosDAO().updateData(listaLeilao: self.listLeiloes)
     }
     
     func getListLeilao() -> [Leilao] {
@@ -86,6 +92,7 @@ struct ListaLeilao: Codable {
             }
             return false
         }
+        ListaLeiloesAtivosDAO().updateData(listaLeilao: self.listLeiloes)
     }
     
     func searchLeilaoById(id: String) -> Leilao? {
@@ -100,17 +107,21 @@ struct ListaLeilao: Codable {
 }
 
 struct ListaLeilaoGeral: Codable {
-    
     static var shared = ListaLeilaoGeral()
     var listaLeilao: [Leilao]
 
     
     private init(){
-        listaLeilao = []
+        guard let listaLeiloes = ListaLeiloesGeralDAO().getListaLeilao() else {
+            self.listaLeilao = []
+            return
+        }
+        self.listaLeilao = listaLeiloes
     }
     
     mutating func addLeilao(leilao: Leilao){
         listaLeilao.append(leilao)
+        ListaLeiloesGeralDAO().updateData(listaLeilao: self.listaLeilao)
     }
     
     mutating func alteraValorAtual(valor:String, id: String){
@@ -119,6 +130,7 @@ struct ListaLeilaoGeral: Codable {
                 self.listaLeilao[i].valorAtual = valor
             }
         }
+        ListaLeiloesGeralDAO().updateData(listaLeilao: self.listaLeilao)
     }
     
     mutating func trocaEstadoLeilao(id: String) {
@@ -127,6 +139,7 @@ struct ListaLeilaoGeral: Codable {
                 listaLeilao[i].estadoLeilao = .CLOSED
             }
         }
+        ListaLeiloesGeralDAO().updateData(listaLeilao: self.listaLeilao)
     }
 
 }
@@ -137,11 +150,16 @@ struct ListaLeilaoAdmin: Codable {
     var listaLeilao: [Leilao]
     
     private init(){
-        listaLeilao = []
+        guard let listaLeiloes = ListaLeiloesAdminDAO().getListaLeilao() else {
+            self.listaLeilao = []
+            return
+        }
+        self.listaLeilao = listaLeiloes
     }
     
     mutating func addLeilao(leilao: Leilao){
         listaLeilao.append(leilao)
+        ListaLeiloesAdminDAO().updateData(listaLeilao: self.listaLeilao)
     }
     
     mutating func alteraValorAtual(valor:String, id: String){
@@ -150,6 +168,7 @@ struct ListaLeilaoAdmin: Codable {
                 self.listaLeilao[i].valorAtual = valor
             }
         }
+        ListaLeiloesAdminDAO().updateData(listaLeilao: self.listaLeilao)
     }
     
     mutating func trocaEstadoLeilao(id: String) {
@@ -158,5 +177,7 @@ struct ListaLeilaoAdmin: Codable {
                 listaLeilao[i].estadoLeilao = .CLOSED
             }
         }
+        ListaLeiloesAdminDAO().updateData(listaLeilao: self.listaLeilao)
+
     }
 }

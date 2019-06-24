@@ -12,7 +12,6 @@ import UIKit
 class ListaLeiloesGeralViewController: UIViewController {
     
     @IBOutlet weak var leiloesTableView: UITableView!
-//    var listaLeiloes = ListaLeilao.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()

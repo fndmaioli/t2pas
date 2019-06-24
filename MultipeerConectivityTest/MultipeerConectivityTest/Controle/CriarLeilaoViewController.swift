@@ -28,23 +28,24 @@ class CriarLeilaoViewController: UIViewController {
         if let nomeProduto = nomeProdutoTextField.text, let nomeLeiloeiro = nomeLeiloeiroTextField.text, let valorInicial = precoInicialTextField.text {
             let leilao = Leilao.init(idLeilao: UIDevice.current.name, nome: nomeProduto, nomeLeiloeiro: nomeLeiloeiro, valorInicial: valorInicial)
             SessionManager.shared.sendText(text: "criarLeilao-"+leilao.idLeilao+"-"+nomeProduto+"-"+nomeLeiloeiro+"-"+valorInicial+"-"+valorInicial)
-            ListaLeilao.shared.addLeilao(leilao: leilao)
-            ListaLeilaoGeral.shared.addLeilao(leilao: leilao)
-            ListaLeilaoAdmin.shared.addLeilao(leilao: leilao)
-            
-            let userDefaults = UserDefaults.standard
-            
-            if let encoded = try? JSONEncoder().encode(ListaLeilao.shared.listLeiloes) {
-                userDefaults.set(encoded, forKey: "listaLeilao")
-            }
-            userDefaults.synchronize()
+//            ListaLeilao.shared.addLeilao(leilao: leilao)
+//            ListaLeilaoGeral.shared.addLeilao(leilao: leilao)
+//            ListaLeilaoAdmin.shared.addLeilao(leilao: leilao)
+            FacadeListaLeilao().addLeilao(leilao: leilao)
 
             
-            if let listData = UserDefaults.standard.data(forKey: "listaLeilao"),
-                let listDecoded = try? JSONDecoder().decode(ListaLeilao.self, from: listData) {
-                print(listDecoded)
-            }
-           
+//            let userDefaults = UserDefaults.standard
+//
+//            if let encoded = try? JSONEncoder().encode(ListaLeilao.shared) {
+//                userDefaults.set(encoded, forKey: "listaLeilao")
+//            }
+//            userDefaults.synchronize()
+//
+//
+//            if let listData = UserDefaults.standard.object(forKey: "listaLeilao") as? Data, let listDecoded = try? JSONDecoder().decode(ListaLeilao.self, from: listData) {
+//                print(listDecoded)
+//            }
+            
             self.createLeilaoDelegate?.didCreateLeilao(leilao: leilao)
         }
         

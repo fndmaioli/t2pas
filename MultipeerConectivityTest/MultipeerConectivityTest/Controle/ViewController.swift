@@ -32,11 +32,6 @@ class ViewController: UIViewController {
         
         SessionManager.shared.createLeilaoDelegate = self
         adminButton.isHidden = true
-//        DispatchQueue.main.async {
-//            if let produto: Produto = SessionManager.shared.getListProdutos()?.listProdutos[0] {
-//                self.label.text = produto.valor
-//            }
-//        }
     }
     
     @IBAction func criarLeilaoButtonClicked(_ sender: UIButton) {
@@ -48,11 +43,6 @@ class ViewController: UIViewController {
             viewController.createLeilaoDelegate = self
         }
     }
-    
-//    @IBAction func buttonSendText(_ sender: UIButton) {
-//        SessionManager.shared.sendText(text: textField.text!)
-//        label.text = textField.text!
-//    }
     
     @IBAction func hostButton(_ sender: UIButton) {
         SessionManager.shared.startHosting()

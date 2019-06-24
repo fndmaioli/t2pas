@@ -60,10 +60,10 @@ extension SessionManager: MCSessionDelegate, MCBrowserViewControllerDelegate {
             if textArray[0] == "criarLeilao" {
                 // "criarLeilao-idLeilao-nomeProduto-nomeLeiloeiro-valorInicial-valorAtual"
                 let leilao = Leilao.init(idLeilao: String(textArray[1]), nome: String(textArray[2]), nomeLeiloeiro: String(textArray[3]), valorInicial: String(textArray[4]))
-//                ListaLeilao.shared.addLeilao(leilao: leilao)
                 ListaLeilao.shared.addLeilao(leilao: leilao)
                 ListaLeilaoAdmin.shared.addLeilao(leilao: leilao)
                 self.updateLeiloesDelegate?.didChangeLeiloesData()
+                
             } else if textArray[0] == "fecharLeilao" {
                 // "fecharLeilao-idLeilao"
                 ListaLeilao.shared.removeLeilao(leilaoId: String(textArray[1]))
