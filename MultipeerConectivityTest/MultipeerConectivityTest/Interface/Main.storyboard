@@ -276,7 +276,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nome produto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIC-nf-Zcc">
-                                                    <rect key="frame" x="20" y="40" width="283" height="24"/>
+                                                    <rect key="frame" x="20" y="40" width="121.5" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -288,13 +288,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nome leiloeiro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tcu-GC-guD">
-                                                    <rect key="frame" x="20" y="11" width="283" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="106.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fechado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyS-qg-ZsF">
-                                                    <rect key="frame" x="311" y="24" width="83" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Fechado" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyS-qg-ZsF">
+                                                    <rect key="frame" x="246" y="24" width="148" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -308,10 +308,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="iyS-qg-ZsF" firstAttribute="trailing" secondItem="gcc-DR-mrE" secondAttribute="trailingMargin" id="2cS-Ml-2mK"/>
-                                                <constraint firstItem="iyS-qg-ZsF" firstAttribute="leading" secondItem="gcc-DR-mrE" secondAttribute="leadingMargin" constant="291" id="3Gq-ZW-nAW"/>
-                                                <constraint firstItem="iyS-qg-ZsF" firstAttribute="leading" secondItem="LIC-nf-Zcc" secondAttribute="trailing" constant="8" id="4GZ-tC-cQ5"/>
                                                 <constraint firstItem="iyS-qg-ZsF" firstAttribute="top" secondItem="gcc-DR-mrE" secondAttribute="topMargin" constant="13" id="FSW-pq-SIS"/>
-                                                <constraint firstItem="iyS-qg-ZsF" firstAttribute="leading" secondItem="Tcu-GC-guD" secondAttribute="trailing" constant="8" id="OBA-5h-fR9"/>
                                                 <constraint firstItem="Tcu-GC-guD" firstAttribute="leading" secondItem="gcc-DR-mrE" secondAttribute="leadingMargin" id="P2I-K6-Mbs"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="oRM-jx-SPn" secondAttribute="trailing" id="RHy-e7-1Np"/>
                                                 <constraint firstItem="LIC-nf-Zcc" firstAttribute="leading" secondItem="gcc-DR-mrE" secondAttribute="leadingMargin" id="WPU-1s-dkq"/>
@@ -461,8 +458,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="wuw-hk-RAG">
-                                <rect key="frame" x="30" y="172" width="354" height="193"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="wuw-hk-RAG">
+                                <rect key="frame" x="30" y="208" width="354" height="193"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nome do produto" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dw8-CM-8pu">
                                         <rect key="frame" x="111" y="0.0" width="132" height="20.5"/>
@@ -528,9 +525,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="R29-Sf-ErW" firstAttribute="trailing" secondItem="wuw-hk-RAG" secondAttribute="trailing" constant="30" id="G5N-YC-MtG"/>
+                            <constraint firstItem="wuw-hk-RAG" firstAttribute="top" secondItem="R29-Sf-ErW" secondAttribute="top" constant="120" id="LGy-WB-GnP"/>
                             <constraint firstItem="ytV-MF-DlN" firstAttribute="leading" secondItem="R29-Sf-ErW" secondAttribute="leading" constant="60" id="P9Y-NG-giU"/>
                             <constraint firstItem="wuw-hk-RAG" firstAttribute="leading" secondItem="R29-Sf-ErW" secondAttribute="leading" constant="30" id="ZGE-pg-g9e"/>
-                            <constraint firstItem="R29-Sf-ErW" firstAttribute="bottom" secondItem="ytV-MF-DlN" secondAttribute="bottom" constant="251" id="jDZ-dp-BiR"/>
+                            <constraint firstItem="ytV-MF-DlN" firstAttribute="top" secondItem="wuw-hk-RAG" secondAttribute="bottom" constant="127" id="fxc-Ph-ycv"/>
                             <constraint firstItem="R29-Sf-ErW" firstAttribute="trailing" secondItem="ytV-MF-DlN" secondAttribute="trailing" constant="60" id="oWo-no-HVL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="R29-Sf-ErW"/>
@@ -656,7 +654,6 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="L8S-qL-5bu" firstAttribute="leading" secondItem="ldX-sy-fpR" secondAttribute="trailing" constant="150" id="7HN-TG-urL"/>
                                                 <constraint firstItem="I6k-kY-zvr" firstAttribute="leading" secondItem="Vih-AU-nlK" secondAttribute="leading" constant="17" id="8Z5-2W-s43"/>
                                                 <constraint firstItem="eOR-dm-NLC" firstAttribute="top" secondItem="L8S-qL-5bu" secondAttribute="bottom" constant="28" id="9dJ-5Z-8FS"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="L8S-qL-5bu" secondAttribute="trailing" constant="46.5" id="Ex1-mQ-C88"/>
@@ -672,7 +669,6 @@
                                                 <constraint firstItem="eOR-dm-NLC" firstAttribute="leading" secondItem="Vih-AU-nlK" secondAttribute="leadingMargin" id="jEX-2U-flc"/>
                                                 <constraint firstItem="ldX-sy-fpR" firstAttribute="top" secondItem="I6k-kY-zvr" secondAttribute="bottom" constant="10.5" id="lsY-MF-gB9"/>
                                                 <constraint firstItem="L8S-qL-5bu" firstAttribute="top" secondItem="Z6j-So-Bge" secondAttribute="bottom" constant="12.5" id="mnD-6s-EOE"/>
-                                                <constraint firstItem="Z6j-So-Bge" firstAttribute="leading" secondItem="I6k-kY-zvr" secondAttribute="trailing" constant="165.5" id="nEl-B3-V9S"/>
                                                 <constraint firstItem="eOR-dm-NLC" firstAttribute="top" secondItem="ldX-sy-fpR" secondAttribute="bottom" constant="27.5" id="pwb-DG-Emj"/>
                                             </constraints>
                                         </tableViewCellContentView>

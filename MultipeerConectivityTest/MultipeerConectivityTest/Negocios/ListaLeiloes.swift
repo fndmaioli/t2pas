@@ -33,12 +33,12 @@ class ListaLeiloesViewController: UIViewController {
 
 extension ListaLeiloesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ListaLeilao.shared.listLeiloes.count
+        return ListaLeilao.shared.getListLeilao().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = leiloesTableView.dequeueReusableCell(withIdentifier: "leilao") as! leilaoCell
-        let leilao = ListaLeilao.shared.listLeiloes[indexPath.row]
+        let leilao = ListaLeilao.shared.getListLeilao()[indexPath.row]
 
         cell.nomeLeiloeiro.text = leilao.nomeLeiloeiro
         cell.nomeProduto.text = leilao.nome
@@ -60,12 +60,12 @@ extension ListaLeiloesViewController: UITableViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let viewController = segue.destination as? LeilaoViewController, let leilao = sender as? Leilao else {return}
-        //if let viewController = segue.destination as? leilaoViewController, let leilao = sender as? Leilao {
-            viewController.nomeProduto = leilao.nome
-            viewController.nomeLeiloeiro = leilao.nomeLeiloeiro
-        viewController.precoInicial = "Preco inicial: \(leilao.valorInicial)"
-        viewController.precoAtual = "Preco atual: \(leilao.valorAtual)"
+        guard let viewController = segue.destination as? LeilaoViewController,
+            let leilao = sender as? Leilao else {return}
+            viewController.nomeProduto = "Produto: \(leilao.nome)"
+            viewController.nomeLeiloeiro = "Leiloeiro: \(leilao.nomeLeiloeiro)"
+            viewController.precoInicial = "Preco inicial: \(leilao.valorInicial)"
+            viewController.precoAtual = "Preco atual: \(leilao.valorAtual)"
             viewController.leilao = leilao
     
         //}

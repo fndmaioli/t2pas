@@ -15,6 +15,7 @@ enum EstadoLeilao  {
 }
 
 struct Leilao {
+    var idCount: Int = 0
     var idLeilao: String
     var nome: String
     var nomeLeiloeiro: String
@@ -23,16 +24,14 @@ struct Leilao {
     var estadoLeilao: EstadoLeilao
     
     init(idLeilao: String,nome: String, nomeLeiloeiro: String, valorInicial: String) {
+        
         self.idLeilao = idLeilao
         self.nome = nome
         self.nomeLeiloeiro = nomeLeiloeiro
         self.valorInicial = valorInicial
         self.valorAtual = valorInicial
         estadoLeilao = .OPEN
-    }
-    
-    mutating func setEstadoLeilao(novoEstado: EstadoLeilao){
-        self.estadoLeilao = novoEstado
+        idCount+=1
     }
 }
 
@@ -50,11 +49,31 @@ struct ListaLeilao {
         listLeiloes.append(leilao)
     }
     
+    mutating func alteraValorAtual(valor:String, idCount: Int){
+        for (i,leilao) in listLeiloes.enumerated() {
+            if leilao.idCount == idCount {
+                self.listLeiloes[i].valorAtual = valor
+            }
+        }
+    }
+    
+    func getListLeilao() -> [Leilao] {
+        var listFiltradoLeiloes: [Leilao] = []
+        for leilao in listLeiloes {
+            if leilao.idLeilao != UIDevice.current.name {
+                listFiltradoLeiloes.append(leilao)
+            }
+        }
+        return listFiltradoLeiloes
+    }
+    
     mutating func removeLeilao(leilaoId: String){
         listLeiloes.removeAll { ( leilao) -> Bool in
             if leilao.idLeilao == leilaoId {
                 var leilaoRemoved = leilao
-                leilaoRemoved.setEstadoLeilao(novoEstado: .CLOSED)
+                leilaoRemoved.estadoLeilao = .CLOSED
+                ListaLeilaoAdmin.shared.trocaEstadoLeilao(id: leilaoRemoved.idLeilao)
+                ListaLeilaoGeral.shared.trocaEstadoLeilao(id: leilaoRemoved.idLeilao)
                 return true
             }
             return false
@@ -85,6 +104,22 @@ struct ListaLeilaoGeral {
     mutating func addLeilao(leilao: Leilao){
         listaLeilao.append(leilao)
     }
+    
+    mutating func alteraValorAtual(valor:String, idCount: Int){
+        for (i,leilao) in listaLeilao.enumerated() {
+            if leilao.idCount == idCount {
+                self.listaLeilao[i].valorAtual = valor
+            }
+        }
+    }
+    
+    mutating func trocaEstadoLeilao(id: String) {
+        for(i, leilao) in listaLeilao.enumerated() {
+            if leilao.idLeilao == id {
+                listaLeilao[i].estadoLeilao = .CLOSED
+            }
+        }
+    }
 
 }
 
@@ -99,5 +134,21 @@ struct ListaLeilaoAdmin {
     
     mutating func addLeilao(leilao: Leilao){
         listaLeilao.append(leilao)
+    }
+    
+    mutating func alteraValorAtual(valor:String, idCount: Int){
+        for (i,leilao) in listaLeilao.enumerated() {
+            if leilao.idCount == idCount {
+                self.listaLeilao[i].valorAtual = valor
+            }
+        }
+    }
+    
+    mutating func trocaEstadoLeilao(id: String) {
+        for(i, leilao) in listaLeilao.enumerated() {
+            if leilao.idLeilao == id {
+                listaLeilao[i].estadoLeilao = .CLOSED
+            }
+        }
     }
 }

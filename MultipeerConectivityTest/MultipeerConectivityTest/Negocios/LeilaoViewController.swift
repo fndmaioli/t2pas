@@ -36,6 +36,11 @@ class LeilaoViewController: UIViewController {
     @IBAction func darLanceButtonClicked(_ sender: UIButton) {
         guard let leilao = self.leilao, let lanceText = self.lanceTextField.text else { return }
         if Double(lanceText)! > Double(leilao.valorAtual)! {
+            precoAtualLabel.text = "Valor atual: \(lanceText)"
+            ListaLeilao.shared.alteraValorAtual(valor: lanceText, idCount: leilao.idCount)
+            ListaLeilaoAdmin.shared.alteraValorAtual(valor: lanceText, idCount: leilao.idCount)
+            ListaLeilaoGeral.shared.alteraValorAtual(valor: lanceText, idCount: leilao.idCount)
+
             SessionManager.shared.sendText(text: "darLance-"+leilao.idLeilao+"-"+lanceText)
             SessionManager.shared.updateLeiloesDelegate?.didChangeLeiloesData()
         }

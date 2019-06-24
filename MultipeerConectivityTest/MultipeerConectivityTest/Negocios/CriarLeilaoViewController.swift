@@ -30,6 +30,7 @@ class CriarLeilaoViewController: UIViewController {
             SessionManager.shared.sendText(text: "criarLeilao-"+leilao.idLeilao+"-"+nomeProduto+"-"+nomeLeiloeiro+"-"+valorInicial+"-"+valorInicial)
             ListaLeilao.shared.addLeilao(leilao: leilao)
             ListaLeilaoGeral.shared.addLeilao(leilao: leilao)
+            ListaLeilaoAdmin.shared.addLeilao(leilao: leilao)
             self.createLeilaoDelegate?.didCreateLeilao(leilao: leilao)
         }
         
