@@ -31,6 +31,20 @@ class CriarLeilaoViewController: UIViewController {
             ListaLeilao.shared.addLeilao(leilao: leilao)
             ListaLeilaoGeral.shared.addLeilao(leilao: leilao)
             ListaLeilaoAdmin.shared.addLeilao(leilao: leilao)
+            
+            let userDefaults = UserDefaults.standard
+            
+            if let encoded = try? JSONEncoder().encode(ListaLeilao.shared.listLeiloes) {
+                userDefaults.set(encoded, forKey: "listaLeilao")
+            }
+            userDefaults.synchronize()
+
+            
+            if let listData = UserDefaults.standard.data(forKey: "listaLeilao"),
+                let listDecoded = try? JSONDecoder().decode(ListaLeilao.self, from: listData) {
+                print(listDecoded)
+            }
+           
             self.createLeilaoDelegate?.didCreateLeilao(leilao: leilao)
         }
         

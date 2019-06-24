@@ -9,13 +9,13 @@
 import Foundation
 import MultipeerConnectivity
 
-enum EstadoLeilao  {
+enum EstadoLeilao: String, Codable  {
+    
     case OPEN
     case CLOSED
 }
 
-struct Leilao {
-    var idCount: Int = 0
+struct Leilao: Codable {
     var idLeilao: String
     var nome: String
     var nomeLeiloeiro: String
@@ -31,11 +31,10 @@ struct Leilao {
         self.valorInicial = valorInicial
         self.valorAtual = valorInicial
         estadoLeilao = .OPEN
-        idCount+=1
     }
 }
 
-struct ListaLeilao {
+struct ListaLeilao: Codable {
     
     var listLeiloes : [Leilao]
     
@@ -49,9 +48,9 @@ struct ListaLeilao {
         listLeiloes.append(leilao)
     }
     
-    mutating func alteraValorAtual(valor:String, idCount: Int){
+    mutating func alteraValorAtual(valor:String, id: String){
         for (i,leilao) in listLeiloes.enumerated() {
-            if leilao.idCount == idCount {
+            if leilao.idLeilao == id && leilao.estadoLeilao == .OPEN{
                 self.listLeiloes[i].valorAtual = valor
             }
         }
@@ -67,13 +66,22 @@ struct ListaLeilao {
         return listFiltradoLeiloes
     }
     
+    mutating func trocaEstadoLeilao(id: String) {
+        for(i, leilao) in listLeiloes.enumerated() {
+            if leilao.idLeilao == id {
+                listLeiloes[i].estadoLeilao = .CLOSED
+            }
+        }
+    }
+    
     mutating func removeLeilao(leilaoId: String){
         listLeiloes.removeAll { ( leilao) -> Bool in
             if leilao.idLeilao == leilaoId {
-                var leilaoRemoved = leilao
-                leilaoRemoved.estadoLeilao = .CLOSED
-                ListaLeilaoAdmin.shared.trocaEstadoLeilao(id: leilaoRemoved.idLeilao)
-                ListaLeilaoGeral.shared.trocaEstadoLeilao(id: leilaoRemoved.idLeilao)
+                let leilaoRemoved = leilao
+//                leilaoRemoved.estadoLeilao = .CLOSED
+//                ListaLeilaoAdmin.shared.trocaEstadoLeilao(id: leilaoRemoved.idLeilao)
+//                ListaLeilaoGeral.shared.trocaEstadoLeilao(id: leilaoRemoved.idLeilao)
+                FacadeListaLeilao().trocaEstadoLeilao(id: leilaoRemoved.idLeilao)
                 return true
             }
             return false
@@ -91,7 +99,7 @@ struct ListaLeilao {
     
 }
 
-struct ListaLeilaoGeral {
+struct ListaLeilaoGeral: Codable {
     
     static var shared = ListaLeilaoGeral()
     var listaLeilao: [Leilao]
@@ -105,9 +113,9 @@ struct ListaLeilaoGeral {
         listaLeilao.append(leilao)
     }
     
-    mutating func alteraValorAtual(valor:String, idCount: Int){
+    mutating func alteraValorAtual(valor:String, id: String){
         for (i,leilao) in listaLeilao.enumerated() {
-            if leilao.idCount == idCount {
+            if leilao.idLeilao == id && leilao.estadoLeilao == .OPEN{
                 self.listaLeilao[i].valorAtual = valor
             }
         }
@@ -123,7 +131,7 @@ struct ListaLeilaoGeral {
 
 }
 
-struct ListaLeilaoAdmin {
+struct ListaLeilaoAdmin: Codable {
     
     static var shared = ListaLeilaoAdmin()
     var listaLeilao: [Leilao]
@@ -136,9 +144,9 @@ struct ListaLeilaoAdmin {
         listaLeilao.append(leilao)
     }
     
-    mutating func alteraValorAtual(valor:String, idCount: Int){
+    mutating func alteraValorAtual(valor:String, id: String){
         for (i,leilao) in listaLeilao.enumerated() {
-            if leilao.idCount == idCount {
+            if leilao.idLeilao == id && leilao.estadoLeilao == .OPEN{
                 self.listaLeilao[i].valorAtual = valor
             }
         }

@@ -37,10 +37,9 @@ class LeilaoViewController: UIViewController {
         guard let leilao = self.leilao, let lanceText = self.lanceTextField.text else { return }
         if Double(lanceText)! > Double(leilao.valorAtual)! {
             precoAtualLabel.text = "Valor atual: \(lanceText)"
-            ListaLeilao.shared.alteraValorAtual(valor: lanceText, idCount: leilao.idCount)
-            ListaLeilaoAdmin.shared.alteraValorAtual(valor: lanceText, idCount: leilao.idCount)
-            ListaLeilaoGeral.shared.alteraValorAtual(valor: lanceText, idCount: leilao.idCount)
-
+           //ListaLeilao.shared.alteraValorAtual(valor: lanceText, id: leilao.idLeilao)
+           // ListaLeilaoAdmin.shared.alteraValorAtual(valor: lanceText, id: leilao.idLeilao)
+            FacadeListaLeilao().alteraValorAtual(valor: lanceText, id: leilao.idLeilao)
             SessionManager.shared.sendText(text: "darLance-"+leilao.idLeilao+"-"+lanceText)
             SessionManager.shared.updateLeiloesDelegate?.didChangeLeiloesData()
         }

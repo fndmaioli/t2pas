@@ -73,6 +73,7 @@ extension SessionManager: MCSessionDelegate, MCBrowserViewControllerDelegate {
                 // "darLance-idLeilao-valorLance"
                 var leilao = ListaLeilao.shared.searchLeilaoById(id: String(textArray[1]))
                 leilao?.valorAtual = String(textArray[2])
+                FacadeListaLeilao().alteraValorAtual(valor: String(textArray[2]), id: String(textArray[1]))
                 self.updateLeiloesDelegate?.didChangeLeiloesData()
                 self.createLeilaoDelegate?.didCreateLeilao(leilao: leilao!)
             }
